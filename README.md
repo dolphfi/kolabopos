@@ -44,3 +44,60 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+{/* Administration */}
+                    <div className="px-3 py-2">
+                        {isSidebarOpen && (
+                            <h3 className="mb-2 px-4 text-xs font-semibold uppercase tracking-wider text-white/50">
+                                Système
+                            </h3>
+                        )}
+                        <div className="space-y-1">
+                            <Accordion type="single" collapsible className="w-full" value={openAccordion} onValueChange={setOpenAccordion}>
+                                <AccordionItem value="admin" className="border-b-0">
+                                    <Tooltip delayDuration={0}>
+                                        <TooltipTrigger asChild>
+                                            <AccordionTrigger
+                                                className={cn(
+                                                    "py-2 hover:bg-white/10 hover:text-white hover:no-underline rounded-md px-4 text-sm font-medium",
+                                                    !isSidebarOpen && "justify-center px-2 [&>svg]:hidden"
+                                                )}
+                                                onClick={handleAccordionTriggerClick}
+                                            >
+                                                <div className="flex items-center">
+                                                    <Shield className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
+                                                    {isSidebarOpen && <span>Administration</span>}
+                                                </div>
+                                            </AccordionTrigger>
+                                        </TooltipTrigger>
+                                        {!isSidebarOpen && (
+                                            <TooltipContent side="right" className="flex items-center gap-4">
+                                                Administration
+                                            </TooltipContent>
+                                        )}
+                                    </Tooltip>
+                                    <AccordionContent className="pb-0 pl-10">
+                                        <div className="space-y-1 mt-1">
+                                            <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white">
+                                                <Lock className="mr-2 h-4 w-4" />
+                                                Rôles & Permissions
+                                            </Button>
+                                            <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white">
+                                                <Activity className="mr-2 h-4 w-4" />
+                                                Journal d'audit
+                                            </Button>
+                                            <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white">
+                                                <Users className="mr-2 h-4 w-4" />
+                                                Utilisateurs
+                                            </Button>
+                                            <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white">
+                                                <Monitor className="mr-2 h-4 w-4" />
+                                                Surveillance
+                                            </Button>
+                                        </div>
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </div>
+                    </div>
