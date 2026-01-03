@@ -5,7 +5,7 @@ import { Sidebar } from "../includes/Sidebar";
 import { Topbar } from "../includes/Topbar";
 import { SystemsFooter } from "../includes/SystemsFooter";
 
-export default function DashboardLayout() {
+export default function ProductsLayout() {
     return (
         <SidebarProvider>
             <div className="flex h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-slate-900">
