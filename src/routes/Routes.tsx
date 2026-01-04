@@ -4,6 +4,12 @@ import DashboardLayout from '../components/layout/DashboardLayout';
 import AdminDashboard from '../pages/dashboard/Dashboard';
 import Products from 'pages/products/Products';
 import ProductsLayout from 'components/layout/ProductsLayout';
+import AddProductLayout from 'components/layout/AddProductLayout';
+import AddProduct from 'pages/products/AddProduct';
+import ProductDetails from 'pages/products/ProductDetails';
+import ProductDetailsLayout from 'components/layout/ProductDetailsLayout';
+import EditProductLayout from 'components/layout/EditProductLayout';
+import EditProduct from 'pages/products/EditProduct';
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +33,36 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Products />,
+            },
+        ],
+    },
+    {
+        path: "/products/add",
+        element: <AddProductLayout />,
+        children: [
+            {
+                index: true,
+                element: <AddProduct />,
+            },
+        ],
+    },
+    {
+        path: "/products/details/:id",
+        element: <ProductDetailsLayout />,
+        children: [
+            {
+                index: true,
+                element: <ProductDetails />,
+            },
+        ],
+    },
+    {
+        path: "/products/edit/:id",
+        element: <EditProductLayout />,
+        children: [
+            {
+                index: true,
+                element: <EditProduct />,
             },
         ],
     },
