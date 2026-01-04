@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
                     <p className="text-slate-400 text-sm mt-0.5">You have <span className="text-amber-500 font-semibold">200+ Orders</span>, Today</p>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button variant="outline" className="h-8 bg-white text-slate-700 border-none hover:bg-slate-100 text-xs">
+                    <Button variant="outline" className="h-8 bg-white/5 backdrop-blur-sm border-white/10 text-slate-300 hover:bg-white/10 hover:text-white text-xs">
                         <Calendar className="mr-2 h-3.5 w-3.5" />
                         12/27/2025 - 01/02/2026
                     </Button>
