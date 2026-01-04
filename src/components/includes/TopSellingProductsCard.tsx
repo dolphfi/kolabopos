@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
+import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { Package, TrendingUp, TrendingDown, ChevronDown } from 'lucide-react';
 
 export const TopSellingProductsCard: React.FC = () => {
@@ -74,24 +75,25 @@ export const TopSellingProductsCard: React.FC = () => {
                 <div className="flex flex-col gap-4">
                     {products.map((product) => (
                         <div key={product.id} className="flex items-center justify-between group">
-                            <div className="flex items-center gap-3">
-                                {/* Placeholder Image */}
-                                <div className={`h-10 w-10 rounded-lg ${product.imageColor} flex items-center justify-center text-white/50 text-xs font-bold`}>
-                                    IMG
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                {/* Product Image */}
+                                <Avatar className={`h-10 w-10 rounded-lg ${product.imageColor}`}>
+                                    <AvatarFallback className="bg-transparent text-white/50 text-xs font-bold">IMG</AvatarFallback>
+                                </Avatar>
+                                <div className="flex flex-col min-w-0">
+                                    <span className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors truncate">
                                         {product.name}
                                     </span>
                                     <div className="flex items-center gap-2 text-xs text-slate-400">
                                         <span>{product.price}</span>
                                         <span className="w-1 h-1 rounded-full bg-slate-600"></span>
-                                        <span>{product.sales}</span>
+                                        <span className="truncate">{product.sales}</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className={`px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1 ${product.positive ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-500'}`}>
+
+                            <div className={`px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1 shrink-0 ${product.positive ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-500'}`}>
                                 {product.positive ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
                                 {product.growth}
                             </div>

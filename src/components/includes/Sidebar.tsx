@@ -5,25 +5,34 @@ import {
     LayoutDashboard,
     Users,
     LucideIcon,
-    Shield,
     Lock,
     Activity,
     Monitor,
-    FileText,
     ShoppingCart,
     Package,
-    PlusCircle,
     Layers,
-    Wallet,
-    ArrowRightLeft,
     Megaphone,
     Gift,
     Percent,
     Settings,
     Store,
     Receipt,
-    Printer,
-    Tag
+    ClockFading,
+    Tags,
+    LayoutList,
+    ShieldCheck,
+    Scan,
+    History,
+    ReceiptText,
+    CornerDownLeft,
+    ShoppingBasket,
+    ShoppingBag,
+    HandCoins,
+    FileStack,
+    Book,
+    ChartLine,
+    MonitorCog,
+    DoorClosedLocked
 } from "lucide-react"
 import {
     Tooltip,
@@ -175,7 +184,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 <div className="px-3 py-2">
                     {isSidebarOpen && (
                         <h3 className="mb-2 px-4 text-xs font-semibold uppercase tracking-wider text-white/50">
-                            Produits
+                            Inventaire
                         </h3>
                     )}
                     <div className="space-y-1">
@@ -192,13 +201,13 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                         >
                                             <div className="flex items-center">
                                                 <Package className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
-                                                {isSidebarOpen && <span>Catalogue</span>}
+                                                {isSidebarOpen && <span>Produits</span>}
                                             </div>
                                         </AccordionTrigger>
                                     </TooltipTrigger>
                                     {!isSidebarOpen && (
                                         <TooltipContent side="right" className="flex items-center gap-4">
-                                            Catalogue
+                                            Produits
                                         </TooltipContent>
                                     )}
                                 </Tooltip>
@@ -211,21 +220,39 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                             </Link>
                                         </Button>
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/products/expired">
+                                                <ClockFading className="mr-2 h-4 w-4" />
+                                                Produits Expirés
+                                            </Link>
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
                                             <Link to="/categories">
-                                                <Tag className="mr-2 h-4 w-4" />
+                                                <LayoutList className="mr-2 h-4 w-4" />
                                                 Catégories
                                             </Link>
                                         </Button>
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/products/add">
-                                                <PlusCircle className="mr-2 h-4 w-4" />
-                                                Ajouter un produit
+                                            <Link to="/brand">
+                                                <Tags className="mr-2 h-4 w-4" />
+                                                Marques
                                             </Link>
                                         </Button>
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/inventory">
+                                            <Link to="/stock">
                                                 <Layers className="mr-2 h-4 w-4" />
-                                                Stock & Inventaire
+                                                Stock
+                                            </Link>
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/warranty">
+                                                <ShieldCheck className="mr-2 h-4 w-4" />
+                                                Garantie
+                                            </Link>
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/qr-barcode">
+                                                <Scan className="mr-2 h-4 w-4" />
+                                                QR & Barcode
                                             </Link>
                                         </Button>
                                     </div>
@@ -256,6 +283,55 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                         >
                                             <div className="flex items-center">
                                                 <ShoppingCart className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
+                                                {isSidebarOpen && <span>Commandes</span>}
+                                            </div>
+                                        </AccordionTrigger>
+                                    </TooltipTrigger>
+                                    {!isSidebarOpen && (
+                                        <TooltipContent side="right" className="flex items-center gap-4">
+                                            Commandes
+                                        </TooltipContent>
+                                    )}
+                                </Tooltip>
+                                <AccordionContent className="pb-0 pl-10">
+                                    <div className="space-y-1 mt-1">
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/sales/history">
+                                                <History className="mr-2 h-4 w-4" />
+                                                Historique de Vente
+                                            </Link>
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/sales/invoices">
+                                                <ReceiptText className="mr-2 h-4 w-4" />
+                                                Factures
+                                            </Link>
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/sales/returns">
+                                                <CornerDownLeft className="mr-2 h-4 w-4" />
+                                                Retours
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+
+                        {/* Point de Vente */}
+                        <Accordion type="single" collapsible className="w-full" value={openAccordion} onValueChange={setOpenAccordion}>
+                            <AccordionItem value="caisse" className="border-b-0">
+                                <Tooltip delayDuration={0}>
+                                    <TooltipTrigger asChild>
+                                        <AccordionTrigger
+                                            className={cn(
+                                                "py-2 hover:bg-white/10 hover:text-white hover:no-underline rounded-md px-4 text-sm font-medium",
+                                                !isSidebarOpen && "justify-center px-2 [&>svg]:hidden"
+                                            )}
+                                            onClick={handleAccordionTriggerClick}
+                                        >
+                                            <div className="flex items-center">
+                                                <Monitor className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
                                                 {isSidebarOpen && <span>Point de Vente</span>}
                                             </div>
                                         </AccordionTrigger>
@@ -270,66 +346,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                     <div className="space-y-1 mt-1">
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
                                             <Link to="/pos">
-                                                <Monitor className="mr-2 h-4 w-4" />
-                                                Terminal de Caisse
-                                            </Link>
-                                        </Button>
-                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/pos/orders">
-                                                <FileText className="mr-2 h-4 w-4" />
-                                                Commandes
-                                            </Link>
-                                        </Button>
-                                    </div>
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                    </div>
-                </div>
-
-                {/* Module Caisse */}
-                <div className="px-3 py-2">
-                    {isSidebarOpen && (
-                        <h3 className="mb-2 px-4 text-xs font-semibold uppercase tracking-wider text-white/50">
-                            Caisse
-                        </h3>
-                    )}
-                    <div className="space-y-1">
-                        <Accordion type="single" collapsible className="w-full" value={openAccordion} onValueChange={setOpenAccordion}>
-                            <AccordionItem value="caisse" className="border-b-0">
-                                <Tooltip delayDuration={0}>
-                                    <TooltipTrigger asChild>
-                                        <AccordionTrigger
-                                            className={cn(
-                                                "py-2 hover:bg-white/10 hover:text-white hover:no-underline rounded-md px-4 text-sm font-medium",
-                                                !isSidebarOpen && "justify-center px-2 [&>svg]:hidden"
-                                            )}
-                                            onClick={handleAccordionTriggerClick}
-                                        >
-                                            <div className="flex items-center">
-                                                <Wallet className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
-                                                {isSidebarOpen && <span>Gestion Caisse</span>}
-                                            </div>
-                                        </AccordionTrigger>
-                                    </TooltipTrigger>
-                                    {!isSidebarOpen && (
-                                        <TooltipContent side="right" className="flex items-center gap-4">
-                                            Gestion Caisse
-                                        </TooltipContent>
-                                    )}
-                                </Tooltip>
-                                <AccordionContent className="pb-0 pl-10">
-                                    <div className="space-y-1 mt-1">
-                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/pos/sessions">
                                                 <Activity className="mr-2 h-4 w-4" />
-                                                Sessions
-                                            </Link>
-                                        </Button>
-                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/pos/movements">
-                                                <ArrowRightLeft className="mr-2 h-4 w-4" />
-                                                Mouvements
+                                                Tous les Points
                                             </Link>
                                         </Button>
                                     </div>
@@ -343,7 +361,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 <div className="px-3 py-2">
                     {isSidebarOpen && (
                         <h3 className="mb-2 px-4 text-xs font-semibold uppercase tracking-wider text-white/50">
-                            Marketing
+                            Marketing & Clients
                         </h3>
                     )}
                     <div className="space-y-1">
@@ -397,11 +415,64 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                     </div>
                 </div>
 
-                {/* Module Configuration */}
+                {/* Module Achat */}
                 <div className="px-3 py-2">
                     {isSidebarOpen && (
                         <h3 className="mb-2 px-4 text-xs font-semibold uppercase tracking-wider text-white/50">
-                            Configuration
+                            Achats & Dépenses
+                        </h3>
+                    )}
+                    <div className="space-y-1">
+                        <Accordion type="single" collapsible className="w-full" value={openAccordion} onValueChange={setOpenAccordion}>
+                            <AccordionItem value="purchases" className="border-b-0">
+                                <Tooltip delayDuration={0}>
+                                    <TooltipTrigger asChild>
+                                        <AccordionTrigger
+                                            className={cn(
+                                                "py-2 hover:bg-white/10 hover:text-white hover:no-underline rounded-md px-4 text-sm font-medium",
+                                                !isSidebarOpen && "justify-center px-2 [&>svg]:hidden"
+                                            )}
+                                            onClick={handleAccordionTriggerClick}
+                                        >
+                                            <div className="flex items-center">
+                                                <ShoppingBasket className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
+                                                {isSidebarOpen && <span>Achats</span>}
+                                            </div>
+                                        </AccordionTrigger>
+                                    </TooltipTrigger>
+                                    {!isSidebarOpen && (
+                                        <TooltipContent side="right" className="flex items-center gap-4">
+                                            Achats
+                                        </TooltipContent>
+                                    )}
+                                </Tooltip>
+                                <AccordionContent className="pb-0 pl-10">
+                                    <div className="space-y-1 mt-1">
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/purchases">
+                                                <ShoppingBag className="mr-2 h-4 w-4" />
+                                                Achats
+                                            </Link>
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/purchases/expenses">
+                                                <HandCoins className="mr-2 h-4 w-4" />
+                                                Dépenses
+                                            </Link>
+                                        </Button>
+                                    </div>
+
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
+                </div>
+
+                {/* Module Rapports */}
+                <div className="px-3 py-2">
+                    {isSidebarOpen && (
+                        <h3 className="mb-2 px-4 text-xs font-semibold uppercase tracking-wider text-white/50">
+                            Rapports
                         </h3>
                     )}
                     <div className="space-y-1">
@@ -417,35 +488,41 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                             onClick={handleAccordionTriggerClick}
                                         >
                                             <div className="flex items-center">
-                                                <Settings className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
-                                                {isSidebarOpen && <span>Paramètres</span>}
+                                                <FileStack className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
+                                                {isSidebarOpen && <span>Rapports</span>}
                                             </div>
                                         </AccordionTrigger>
                                     </TooltipTrigger>
                                     {!isSidebarOpen && (
                                         <TooltipContent side="right" className="flex items-center gap-4">
-                                            Paramètres
+                                            Rapports
                                         </TooltipContent>
                                     )}
                                 </Tooltip>
                                 <AccordionContent className="pb-0 pl-10">
                                     <div className="space-y-1 mt-1">
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/settings/general">
+                                            <Link to="/reports/sales-report">
                                                 <Store className="mr-2 h-4 w-4" />
-                                                Boutique
+                                                Rapports de vente
                                             </Link>
                                         </Button>
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/settings/receipts">
+                                            <Link to="/reports/purchase-report">
                                                 <Receipt className="mr-2 h-4 w-4" />
-                                                Reçus
+                                                Rapports d'achat
                                             </Link>
                                         </Button>
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/settings/devices">
-                                                <Printer className="mr-2 h-4 w-4" />
-                                                Périphériques
+                                            <Link to="/reports/expense-report">
+                                                <Book className="mr-2 h-4 w-4" />
+                                                Rapport de dépenses
+                                            </Link>
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/reports/profit-loss-report">
+                                                <ChartLine className="mr-2 h-4 w-4" />
+                                                Profit & Perte
                                             </Link>
                                         </Button>
                                     </div>
@@ -459,7 +536,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 <div className="px-3 py-2">
                     {isSidebarOpen && (
                         <h3 className="mb-2 px-4 text-xs font-semibold uppercase tracking-wider text-white/50">
-                            Système
+                            Administration
                         </h3>
                     )}
                     <div className="space-y-1">
@@ -475,14 +552,14 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                             onClick={handleAccordionTriggerClick}
                                         >
                                             <div className="flex items-center">
-                                                <Shield className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
-                                                {isSidebarOpen && <span>Administration</span>}
+                                                <Settings className={cn("h-4 w-4", isSidebarOpen ? "mr-2" : "")} />
+                                                {isSidebarOpen && <span>Paramètres Généraux</span>}
                                             </div>
                                         </AccordionTrigger>
                                     </TooltipTrigger>
                                     {!isSidebarOpen && (
                                         <TooltipContent side="right" className="flex items-center gap-4">
-                                            Administration
+                                            Paramètres Généraux
                                         </TooltipContent>
                                     )}
                                 </Tooltip>
@@ -504,6 +581,18 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                             <Monitor className="mr-2 h-4 w-4" />
                                             Surveillance
                                         </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white">
+                                            <MonitorCog className="mr-2 h-4 w-4" />
+                                            Système
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white">
+                                            <Receipt className="mr-2 h-4 w-4" />
+                                            Paramètres de Facturation
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white">
+                                            <DoorClosedLocked className="mr-2 h-4 w-4" />
+                                            Parcerel de paiement
+                                        </Button>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
@@ -512,9 +601,9 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                 </div>
             </div>
 
-            {/* <div className="px-3 py-4 mt-auto">
-                    <SidebarItem icon={Settings} label="Paramètres" isSidebarOpen={isSidebarOpen} />
-                </div> */}
+            <div className="px-3 py-4 mt-auto">
+                <SidebarItem icon={Settings} label="Paramètres" isSidebarOpen={isSidebarOpen} />
+            </div>
         </div>
     )
 

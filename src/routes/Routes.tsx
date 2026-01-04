@@ -3,13 +3,15 @@ import Login from '../pages/auth/Login';
 import DashboardLayout from '../components/layout/DashboardLayout';
 import AdminDashboard from '../pages/dashboard/Dashboard';
 import Products from 'pages/products/Products';
-import ProductsLayout from 'components/layout/ProductsLayout';
-import AddProductLayout from 'components/layout/AddProductLayout';
+import ProductsLayout from 'components/layout/productlayout/ProductsLayout';
+import AddProductLayout from 'components/layout/productlayout/AddProductLayout';
 import AddProduct from 'pages/products/AddProduct';
 import ProductDetails from 'pages/products/ProductDetails';
-import ProductDetailsLayout from 'components/layout/ProductDetailsLayout';
-import EditProductLayout from 'components/layout/EditProductLayout';
+import ProductDetailsLayout from 'components/layout/productlayout/ProductDetailsLayout';
+import EditProductLayout from 'components/layout/productlayout/EditProductLayout';
 import EditProduct from 'pages/products/EditProduct';
+import ExpiredProducts from 'pages/products/ExpiredProducts';
+import ExpiredProductsLayout from 'components/layout/productlayout/ExpiredProductsLayout';
 
 export const router = createBrowserRouter([
     {
@@ -63,6 +65,16 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <EditProduct />,
+            },
+        ],
+    },
+    {
+        path: "/products/expired",
+        element: <ExpiredProductsLayout />,
+        children: [
+            {
+                index: true,
+                element: <ExpiredProducts />,
             },
         ],
     },

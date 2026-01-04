@@ -43,7 +43,7 @@ export const SalesStatisticsCard: React.FC = () => {
                         <div className="p-2 bg-orange-500/10 rounded-lg">
                             <Triangle className="h-5 w-5 text-orange-500 fill-orange-500" />
                         </div>
-                        <h3 className="text-lg font-bold text-white">Sales Statics</h3>
+                        <h3 className="text-lg font-bold text-white">Sales Statistics</h3>
                     </div>
 
                     <Button variant="outline" size="sm" className="h-8 text-xs bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:text-white gap-2">
@@ -54,12 +54,12 @@ export const SalesStatisticsCard: React.FC = () => {
                 </div>
 
                 {/* Stats Summary */}
-                <div className="flex gap-4 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 border border-white/5">
-                        <div>
+                        <div className="min-w-0">
                             <div className="flex items-center gap-2">
-                                <span className="text-xl font-bold text-teal-400">$12,189</span>
-                                <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/20 text-emerald-400">
+                                <span className="text-xl font-bold text-teal-400 truncate">$12,189</span>
+                                <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/20 text-emerald-400 shrink-0">
                                     ↗ 25%
                                 </span>
                             </div>
@@ -67,10 +67,10 @@ export const SalesStatisticsCard: React.FC = () => {
                         </div>
                     </div>
                     <div className="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3 border border-white/5">
-                        <div>
+                        <div className="min-w-0">
                             <div className="flex items-center gap-2">
-                                <span className="text-xl font-bold text-white">$48,988,078</span>
-                                <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-orange-500/20 text-orange-400">
+                                <span className="text-xl font-bold text-white truncate">$48,988,078</span>
+                                <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-orange-500/20 text-orange-400 shrink-0">
                                     ↗ 25%
                                 </span>
                             </div>
@@ -80,54 +80,58 @@ export const SalesStatisticsCard: React.FC = () => {
                 </div>
 
                 {/* Chart */}
-                <div className="flex-1 w-full min-h-[200px]">
-                    <ChartContainer config={chartConfig} className="h-full w-full">
-                        <BarChart accessibilityLayer data={monthlyData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                            <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                <div className="flex-1 w-full min-h-[200px] overflow-hidden">
+                    <div className="overflow-x-auto pb-2 no-scrollbar">
+                        <div className="h-full w-full min-w-[500px]">
+                            <ChartContainer config={chartConfig} className="h-full w-full">
+                                <BarChart accessibilityLayer data={monthlyData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                                    <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
 
-                            <XAxis
-                                dataKey="month"
-                                tickLine={false}
-                                tickMargin={10}
-                                axisLine={false}
-                                tick={{ fill: '#94a3b8', fontSize: 10 }}
-                            />
-
-                            <YAxis
-                                tickLine={false}
-                                axisLine={false}
-                                tickMargin={10}
-                                tick={{ fill: '#94a3b8', fontSize: 10 }}
-                                tickFormatter={(value) => `${value / 1000}K`}
-                            />
-
-                            <ReferenceLine y={0} stroke="rgba(255,255,255,0.2)" strokeDasharray="3 3" />
-
-                            <ChartTooltip
-                                cursor={false}
-                                content={
-                                    <ChartTooltipContent
-                                        indicator="dot"
-                                        className="bg-black/60 backdrop-blur-xl border border-white/10 text-white min-w-[120px] shadow-2xl [&_.text-foreground]:text-white"
-                                        labelClassName="text-slate-300 mb-1 border-b border-white/10 pb-1"
+                                    <XAxis
+                                        dataKey="month"
+                                        tickLine={false}
+                                        tickMargin={10}
+                                        axisLine={false}
+                                        tick={{ fill: '#94a3b8', fontSize: 10 }}
                                     />
-                                }
-                            />
 
-                            <Bar
-                                dataKey="revenue"
-                                fill="var(--color-revenue)"
-                                radius={[4, 4, 0, 0]}
-                                barSize={20}
-                            />
-                            <Bar
-                                dataKey="expense"
-                                fill="var(--color-expense)"
-                                radius={[0, 0, 4, 4]}
-                                barSize={20}
-                            />
-                        </BarChart>
-                    </ChartContainer>
+                                    <YAxis
+                                        tickLine={false}
+                                        axisLine={false}
+                                        tickMargin={10}
+                                        tick={{ fill: '#94a3b8', fontSize: 10 }}
+                                        tickFormatter={(value) => `${value / 1000}K`}
+                                    />
+
+                                    <ReferenceLine y={0} stroke="rgba(255,255,255,0.2)" strokeDasharray="3 3" />
+
+                                    <ChartTooltip
+                                        cursor={false}
+                                        content={
+                                            <ChartTooltipContent
+                                                indicator="dot"
+                                                className="bg-black/60 backdrop-blur-xl border border-white/10 text-white min-w-[120px] shadow-2xl [&_.text-foreground]:text-white"
+                                                labelClassName="text-slate-300 mb-1 border-b border-white/10 pb-1"
+                                            />
+                                        }
+                                    />
+
+                                    <Bar
+                                        dataKey="revenue"
+                                        fill="var(--color-revenue)"
+                                        radius={[4, 4, 0, 0]}
+                                        barSize={20}
+                                    />
+                                    <Bar
+                                        dataKey="expense"
+                                        fill="var(--color-expense)"
+                                        radius={[0, 0, 4, 4]}
+                                        barSize={20}
+                                    />
+                                </BarChart>
+                            </ChartContainer>
+                        </div>
+                    </div>
                 </div>
             </CardContent>
         </Card>

@@ -35,21 +35,21 @@ export const OverallInfoCard: React.FC = () => {
                     <h3 className="text-lg font-bold text-white">Overall Information</h3>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 mb-4 px-6 -mx-6 pb-4 border-b border-white/10">
-                    <div className="flex flex-col items-center justify-center p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <User className="h-5 w-5 text-blue-500 mb-2" />
-                        <span className="text-xs text-slate-400 font-medium mb-1">Suppliers</span>
-                        <span className="text-lg font-bold text-white">6987</span>
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 px-6 -mx-6 pb-4 border-b border-white/10">
+                    <div className="flex flex-col items-center justify-center p-2 sm:p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                        <User className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mb-2" />
+                        <span className="text-[10px] sm:text-xs text-slate-400 font-medium mb-1">Suppliers</span>
+                        <span className="text-sm sm:text-lg font-bold text-white">6987</span>
                     </div>
-                    <div className="flex flex-col items-center justify-center p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Users className="h-5 w-5 text-orange-500 mb-2" />
-                        <span className="text-xs text-slate-400 font-medium mb-1">Customer</span>
-                        <span className="text-lg font-bold text-white">4896</span>
+                    <div className="flex flex-col items-center justify-center p-2 sm:p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                        <Users className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500 mb-2" />
+                        <span className="text-[10px] sm:text-xs text-slate-400 font-medium mb-1">Customer</span>
+                        <span className="text-sm sm:text-lg font-bold text-white">4896</span>
                     </div>
-                    <div className="flex flex-col items-center justify-center p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <ShoppingCart className="h-5 w-5 text-emerald-500 mb-2" />
-                        <span className="text-xs text-slate-400 font-medium mb-1">Orders</span>
-                        <span className="text-lg font-bold text-white">487</span>
+                    <div className="flex flex-col items-center justify-center p-2 sm:p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                        <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-500 mb-2" />
+                        <span className="text-[10px] sm:text-xs text-slate-400 font-medium mb-1">Orders</span>
+                        <span className="text-sm sm:text-lg font-bold text-white">487</span>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@ export const OverallInfoCard: React.FC = () => {
                         </Button>
                     </div>
 
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                         {/* Recharts Radial Chart */}
                         <div className="relative w-32 h-32 flex items-center justify-center shrink-0">
                             <ChartContainer config={chartConfig} className="w-full h-full">
@@ -89,7 +89,7 @@ export const OverallInfoCard: React.FC = () => {
                             </ChartContainer>
                         </div>
 
-                        <div className="flex-1 flex items-center justify-around pl-4">
+                        <div className="flex-1 w-full flex items-center justify-around sm:pl-4">
                             <div className="flex flex-col items-center">
                                 <h5 className="text-2xl font-bold text-white mb-1">5.5K</h5>
                                 <p className="text-xs text-orange-500 font-medium mb-2">First Time</p>

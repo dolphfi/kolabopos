@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
+import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { Link } from 'react-router-dom';
 import { Wallet } from 'lucide-react';
 
 type TransactionStatus = 'Completed' | 'Draft' | 'Pending' | 'Cancelled';
@@ -95,20 +98,22 @@ export const RecentTransactionsCard: React.FC = () => {
                         <h3 className="text-lg font-bold text-white">Recent Transactions</h3>
                     </div>
 
-                    <span className="text-sm text-blue-400 hover:text-blue-300 cursor-pointer hover:underline">
-                        View All
-                    </span>
+                    <Link to="/transactions">
+                        <Button variant="link" className="text-sm text-blue-400 hover:text-blue-300 hover:no-underline p-0 h-auto">
+                            View All
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* Tabs */}
-                <div className="flex gap-6 mb-4 border-b border-white/10 overflow-x-auto">
+                <div className="flex gap-6 mb-4 border-b border-white/10 overflow-x-auto no-scrollbar">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`pb-3 text-sm font-medium transition-colors relative whitespace-nowrap ${activeTab === tab
-                                    ? 'text-orange-500'
-                                    : 'text-slate-400 hover:text-white'
+                                ? 'text-orange-500'
+                                : 'text-slate-400 hover:text-white'
                                 }`}
                         >
                             {tab}
@@ -119,44 +124,51 @@ export const RecentTransactionsCard: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Table Header */}
-                <div className="grid grid-cols-12 gap-4 text-xs text-slate-400 font-medium mb-3 px-2">
-                    <div className="col-span-3">Date</div>
-                    <div className="col-span-4">Customer</div>
-                    <div className="col-span-3">Status</div>
-                    <div className="col-span-2 text-right">Total</div>
-                </div>
-
-                {/* Transactions List */}
-                <div className="flex flex-col gap-3">
-                    {transactions.map((transaction) => (
-                        <div key={transaction.id} className="grid grid-cols-12 gap-4 items-center py-2 px-2 rounded-lg hover:bg-white/5 transition-colors group">
-                            <div className="col-span-3 text-sm text-slate-300 whitespace-nowrap">
-                                {transaction.date}
-                            </div>
-                            <div className="col-span-4 flex items-center gap-3">
-                                <div className={`h-10 w-10 rounded-full ${transaction.avatarColor} flex items-center justify-center text-white text-xs font-bold shrink-0`}>
-                                    {transaction.customerName.charAt(0)}
-                                </div>
-                                <div className="flex flex-col min-w-0">
-                                    <span className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors truncate">
-                                        {transaction.customerName}
-                                    </span>
-                                    <span className="text-xs text-slate-400">
-                                        {transaction.customerId}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="col-span-3">
-                                <span className={`px-3 py-1 rounded text-[11px] font-semibold ${getStatusStyles(transaction.status)}`}>
-                                    {transaction.status}
-                                </span>
-                            </div>
-                            <div className="col-span-2 text-right text-sm font-bold text-white">
-                                {transaction.total}
-                            </div>
+                {/* Scrollable Table Container */}
+                <div className="overflow-x-auto -mx-6 px-6 no-scrollbar">
+                    <div className="min-w-[600px]">
+                        {/* Table Header */}
+                        <div className="grid grid-cols-12 gap-4 text-xs text-slate-400 font-medium mb-3 px-2">
+                            <div className="col-span-3">Date</div>
+                            <div className="col-span-4">Customer</div>
+                            <div className="col-span-3">Status</div>
+                            <div className="col-span-2 text-right">Total</div>
                         </div>
-                    ))}
+
+                        {/* Transactions List */}
+                        <div className="flex flex-col gap-3">
+                            {transactions.map((transaction) => (
+                                <div key={transaction.id} className="grid grid-cols-12 gap-4 items-center py-2 px-2 rounded-lg hover:bg-white/5 transition-colors group">
+                                    <div className="col-span-3 text-sm text-slate-300 whitespace-nowrap">
+                                        {transaction.date}
+                                    </div>
+                                    <div className="col-span-4 flex items-center gap-3">
+                                        <Avatar className={`h-10 w-10 ${transaction.avatarColor}`}>
+                                            <AvatarFallback className="bg-transparent text-white text-xs font-bold">
+                                                {transaction.customerName.charAt(0)}
+                                            </AvatarFallback>
+                                        </Avatar>
+                                        <div className="flex flex-col min-w-0">
+                                            <span className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors truncate">
+                                                {transaction.customerName}
+                                            </span>
+                                            <span className="text-xs text-slate-400">
+                                                {transaction.customerId}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-3">
+                                        <span className={`px-3 py-1 rounded text-[11px] font-semibold whitespace-nowrap ${getStatusStyles(transaction.status)}`}>
+                                            {transaction.status}
+                                        </span>
+                                    </div>
+                                    <div className="col-span-2 text-right text-sm font-bold text-white">
+                                        {transaction.total}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </CardContent>
         </Card>

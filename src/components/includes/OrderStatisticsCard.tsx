@@ -63,38 +63,42 @@ export const OrderStatisticsCard: React.FC = () => {
                 </div>
 
                 {/* Heatmap Grid */}
-                <div className="flex-1 flex gap-4 min-h-[300px]">
-                    {/* Y-Axis Labels */}
-                    <div className="flex flex-col justify-between py-2 text-xs text-slate-400 font-medium">
-                        {timeSlots.map((time) => (
-                            <div key={time} className="h-8 flex items-center justify-end">
-                                {time}
+                <div className="flex-1 overflow-hidden">
+                    <div className="overflow-x-auto pb-2 no-scrollbar">
+                        <div className="flex gap-4 min-h-[300px] min-w-[340px]">
+                            {/* Y-Axis Labels */}
+                            <div className="flex flex-col justify-between py-2 text-xs text-slate-400 font-medium">
+                                {timeSlots.map((time) => (
+                                    <div key={time} className="h-8 flex items-center justify-end whitespace-nowrap">
+                                        {time}
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
 
-                    {/* Grid Container */}
-                    <div className="flex-1 flex flex-col justify-between">
-                        <div className="flex-1 grid grid-rows-9 gap-1">
-                            {dataGrid.map((row, rowIndex) => (
-                                <div key={rowIndex} className="grid grid-cols-7 gap-1">
-                                    {row.map((intensity, colIndex) => (
-                                        <div
-                                            key={`${rowIndex}-${colIndex}`}
-                                            className={`rounded-sm h-full w-full transition-colors hover:opacity-80 ${getColor(intensity)}`}
-                                        />
+                            {/* Grid Container */}
+                            <div className="flex-1 flex flex-col justify-between">
+                                <div className="flex-1 grid grid-rows-9 gap-1">
+                                    {dataGrid.map((row, rowIndex) => (
+                                        <div key={rowIndex} className="grid grid-cols-7 gap-1">
+                                            {row.map((intensity, colIndex) => (
+                                                <div
+                                                    key={`${rowIndex}-${colIndex}`}
+                                                    className={`rounded-sm h-full w-full transition-colors hover:opacity-80 ${getColor(intensity)}`}
+                                                />
+                                            ))}
+                                        </div>
                                     ))}
                                 </div>
-                            ))}
-                        </div>
 
-                        {/* X-Axis Labels */}
-                        <div className="grid grid-cols-7 gap-1 mt-2">
-                            {days.map((day) => (
-                                <div key={day} className="text-xs text-slate-400 text-center font-medium">
-                                    {day}
+                                {/* X-Axis Labels */}
+                                <div className="grid grid-cols-7 gap-1 mt-2">
+                                    {days.map((day) => (
+                                        <div key={day} className="text-xs text-slate-400 text-center font-medium">
+                                            {day}
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </div>
                 </div>

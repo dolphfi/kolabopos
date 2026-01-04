@@ -1,5 +1,8 @@
 import React from 'react';
 import { Card, CardContent } from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
+import { Link } from 'react-router-dom';
 import { Users } from 'lucide-react';
 
 interface Customer {
@@ -68,33 +71,38 @@ export const TopCustomersCard: React.FC = () => {
                         <h3 className="text-lg font-bold text-white">Top Customers</h3>
                     </div>
 
-                    <span className="text-sm text-slate-300 hover:text-white cursor-pointer hover:underline">
-                        View All
-                    </span>
+                    <Link to="/customers">
+                        <Button variant="link" className="text-sm text-slate-300 hover:text-white hover:no-underline p-0 h-auto">
+                            View All
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* List */}
                 <div className="flex-1 flex flex-col justify-between">
                     {customers.map((customer) => (
-                        <div key={customer.id} className="flex items-center justify-between group">
-                            <div className="flex items-center gap-3">
+                        <div key={customer.id} className="flex items-center justify-between group py-2">
+                            <div className="flex items-center gap-3 overflow-hidden">
                                 {/* Avatar */}
-                                <div className="h-10 w-10 rounded-lg bg-gray-600 overflow-hidden">
-                                    <img src={customer.avatar} alt={customer.name} className="h-full w-full object-cover" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-sm font-bold text-white group-hover:text-amber-500 transition-colors">
+                                <Avatar className="h-10 w-10 rounded-lg">
+                                    <AvatarImage src={customer.avatar} alt={customer.name} />
+                                    <AvatarFallback className="rounded-lg bg-slate-700 text-xs font-bold text-white">
+                                        {customer.name.charAt(0)}
+                                    </AvatarFallback>
+                                </Avatar>
+                                <div className="flex flex-col min-w-0">
+                                    <span className="text-sm font-bold text-white group-hover:text-amber-500 transition-colors truncate">
                                         {customer.name}
                                     </span>
                                     <div className="flex items-center gap-1 text-xs text-slate-400">
-                                        <span>{customer.location}</span>
-                                        <span className="w-1 h-1 rounded-full bg-slate-600"></span>
-                                        <span className="text-orange-400">{customer.orders.toString().padStart(2, '0')} Orders</span>
+                                        <span className="shrink-0">{customer.location}</span>
+                                        <span className="w-1 h-1 rounded-full bg-slate-600 shrink-0"></span>
+                                        <span className="text-orange-400 truncate">{customer.orders.toString().padStart(2, '0')} Orders</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <span className="text-sm font-bold text-white">
+                            <span className="text-sm font-bold text-white shrink-0 pl-2">
                                 {customer.totalSpend}
                             </span>
                         </div>

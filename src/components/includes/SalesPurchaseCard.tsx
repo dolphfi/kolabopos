@@ -44,13 +44,13 @@ export const SalesPurchaseCard: React.FC = () => {
                         </div>
                         <h3 className="text-lg font-bold text-white">Sales & Purchase</h3>
                     </div>
-                    <div className="flex bg-white/5 p-1 rounded-lg border border-white/10">
+                    <div className="flex bg-white/5 p-1 rounded-lg border border-white/10 overflow-x-auto max-w-full no-scrollbar">
                         {['1D', '1W', '1M', '3M', '6M', '1Y'].map((period) => (
                             <Button
                                 key={period}
                                 variant="ghost"
                                 size="sm"
-                                className={`h-7 px-3 text-xs font-medium rounded-md ${period === '1Y' ? 'bg-orange-500 text-white hover:bg-orange-600' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+                                className={`h-7 px-3 text-xs font-medium rounded-md whitespace-nowrap ${period === '1Y' ? 'bg-orange-500 text-white hover:bg-orange-600' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
                             >
                                 {period}
                             </Button>
@@ -59,19 +59,19 @@ export const SalesPurchaseCard: React.FC = () => {
                 </div>
 
                 {/* Legend / Stats */}
-                <div className="flex gap-4 mb-2 pt-2">
-                    <div className="border border-white/10 rounded-xl p-3 bg-white/5 min-w-[140px]">
+                <div className="grid grid-cols-2 gap-4 mb-2 pt-2">
+                    <div className="border border-white/10 rounded-xl p-3 bg-white/5 w-full">
                         <div className="flex items-center gap-2 mb-1">
-                            <span className="w-2 h-2 rounded-full bg-orange-300"></span>
+                            <span className="w-2 h-2 rounded-full bg-orange-300 shrink-0"></span>
                             {/* Note: bg-orange-300 matches the 'purchase' color defined in config */}
-                            <span className="text-slate-400 text-xs font-medium">Total Purchase</span>
+                            <span className="text-slate-400 text-xs font-medium truncate">Total Purchase</span>
                         </div>
                         <h4 className="text-xl font-bold text-white ml-4">3K</h4>
                     </div>
-                    <div className="border border-white/10 rounded-xl p-3 bg-white/5 min-w-[140px]">
+                    <div className="border border-white/10 rounded-xl p-3 bg-white/5 w-full">
                         <div className="flex items-center gap-2 mb-1">
-                            <span className="w-2 h-2 rounded-full bg-orange-500"></span>
-                            <span className="text-slate-400 text-xs font-medium">Total Sales</span>
+                            <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
+                            <span className="text-slate-400 text-xs font-medium truncate">Total Sales</span>
                         </div>
                         <h4 className="text-xl font-bold text-white ml-4">1K</h4>
                     </div>

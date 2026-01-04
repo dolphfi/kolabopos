@@ -1,11 +1,11 @@
 
 import { Outlet } from "react-router-dom";
-import { SidebarProvider } from "./SidebarContext";
-import { Sidebar } from "../includes/Sidebar";
-import { Topbar } from "../includes/Topbar";
-import { SystemsFooter } from "../includes/SystemsFooter";
+import { SidebarProvider } from "../SidebarContext";
+import { Sidebar } from "../../includes/Sidebar";
+import { Topbar } from "../../includes/Topbar";
+import { SystemsFooter } from "../../includes/SystemsFooter";
 
-export default function AddProductLayout() {
+export default function ProductDetailsLayout() {
     return (
         <SidebarProvider>
             <div className="flex h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-slate-900">

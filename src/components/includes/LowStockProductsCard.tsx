@@ -1,5 +1,7 @@
-import React from 'react';
 import { Card, CardContent } from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
+import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { Link } from 'react-router-dom';
 import { AlertTriangle } from 'lucide-react';
 
 export const LowStockProductsCard: React.FC = () => {
@@ -48,22 +50,24 @@ export const LowStockProductsCard: React.FC = () => {
                         <h3 className="text-lg font-bold text-white">Low Stock Products</h3>
                     </div>
 
-                    <a href="/dashboard" className="text-xs font-medium text-slate-400 hover:text-white underline decoration-slate-600 hover:decoration-white transition-all">
-                        View All
-                    </a>
+                    <Link to="/products">
+                        <Button variant="link" className="text-xs font-medium text-slate-400 hover:text-white decoration-slate-600 hover:decoration-white h-auto p-0">
+                            View All
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* List */}
                 <div className="flex flex-col gap-4">
                     {products.map((product) => (
                         <div key={product.id} className="flex items-center justify-between group">
-                            <div className="flex items-center gap-3">
-                                {/* Placeholder Image */}
-                                <div className={`h-10 w-10 rounded-lg ${product.imageColor} flex items-center justify-center text-white/50 text-xs font-bold`}>
-                                    IMG
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                {/* Product Image */}
+                                <Avatar className={`h-10 w-10 rounded-lg ${product.imageColor}`}>
+                                    <AvatarFallback className="bg-transparent text-white/50 text-xs font-bold">IMG</AvatarFallback>
+                                </Avatar>
+                                <div className="flex flex-col min-w-0">
+                                    <span className="text-sm font-bold text-white group-hover:text-orange-400 transition-colors truncate">
                                         {product.name}
                                     </span>
                                     <span className="text-xs text-slate-400">
@@ -72,7 +76,7 @@ export const LowStockProductsCard: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="flex flex-col items-end">
+                            <div className="flex flex-col items-end shrink-0 pl-2">
                                 <span className="text-[10px] uppercase font-bold text-slate-500 mb-0.5">Instock</span>
                                 <span className="text-sm font-bold text-orange-500">{product.count}</span>
                             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
+import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { ShoppingCart, ChevronDown, Calendar } from 'lucide-react';
 
 type SaleStatus = 'Processing' | 'Completed' | 'Cancelled' | 'Onhold';
@@ -102,24 +103,25 @@ export const RecentSalesCard: React.FC = () => {
                 <div className="flex flex-col gap-4">
                     {sales.map((sale) => (
                         <div key={sale.id} className="flex items-center justify-between group">
-                            <div className="flex items-center gap-3">
-                                {/* Placeholder Image */}
-                                <div className={`h-10 w-10 rounded-lg ${sale.imageColor} flex items-center justify-center text-white/50 text-xs font-bold`}>
-                                    IMG
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                {/* Product Image */}
+                                <Avatar className={`h-10 w-10 rounded-lg ${sale.imageColor}`}>
+                                    <AvatarFallback className="bg-transparent text-white/50 text-xs font-bold">IMG</AvatarFallback>
+                                </Avatar>
+                                <div className="flex flex-col min-w-0">
+                                    <span className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors truncate">
                                         {sale.productName}
                                     </span>
                                     <div className="flex items-center gap-2 text-xs text-slate-400">
-                                        <span className="text-pink-500/80">{sale.category}</span>
-                                        <span className="w-1 h-1 rounded-full bg-slate-600"></span>
-                                        <span className="flex items-center gap-2 text-xs text-slate-400">{sale.price}</span>
+                                        <span className="text-pink-500/80 shrink-0">{sale.category}</span>
+                                        <span className="w-1 h-1 rounded-full bg-slate-600 shrink-0"></span>
+                                        <span className="truncate">{sale.price}</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="flex flex-col items-end gap-1">
+
+                            <div className="flex flex-col items-end gap-1 shrink-0 pl-2">
                                 <span className="text-xs text-slate-500">{sale.date}</span>
                                 <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${getStatusStyles(sale.status)}`}>
                                     {sale.status}

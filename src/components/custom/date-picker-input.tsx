@@ -54,7 +54,7 @@ export function DatePickerInput({ date, onDateChange, label, id }: DatePickerInp
                     value={value}
                     readOnly
                     placeholder="Pick a date"
-                    className="bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-orange-500/50 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 pr-10 cursor-pointer"
+                    className="bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-0 focus-visible:border-orange-500 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 pr-10 cursor-pointer"
                     onClick={() => setOpen(true)}
                     onKeyDown={(e) => {
                         if (e.key === "ArrowDown") {

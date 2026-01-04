@@ -1,9 +1,9 @@
 
 import { Outlet } from "react-router-dom";
-import { SidebarProvider } from "./SidebarContext";
-import { Sidebar } from "../includes/Sidebar";
-import { Topbar } from "../includes/Topbar";
-import { SystemsFooter } from "../includes/SystemsFooter";
+import { SidebarProvider } from "../SidebarContext";
+import { Sidebar } from "../../includes/Sidebar";
+import { Topbar } from "../../includes/Topbar";
+import { SystemsFooter } from "../../includes/SystemsFooter";
 
 export default function ProductsLayout() {
     return (

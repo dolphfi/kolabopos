@@ -66,11 +66,11 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-orange-500 border-none text-white relative overflow-hidden">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$48,988,078</h3>
-                                <p className="text-orange-100/80 text-xs font-medium mt-0.5">Total Sales</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$48,988,078</h3>
+                                <p className="text-orange-100/80 text-xs font-medium mt-0.5 truncate">Total Sales</p>
                             </div>
-                            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm shrink-0">
                                 <FileText className="h-5 w-5 text-white" />
                             </div>
                         </div>
@@ -88,11 +88,11 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-slate-900 border-slate-800 text-white relative overflow-hidden">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$16,478,145</h3>
-                                <p className="text-slate-400 text-xs font-medium mt-0.5">Total Sales Return</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$16,478,145</h3>
+                                <p className="text-slate-400 text-xs font-medium mt-0.5 truncate">Total Sales Return</p>
                             </div>
-                            <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+                            <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm shrink-0">
                                 <RefreshCw className="h-5 w-5 text-white" />
                             </div>
                         </div>
@@ -110,11 +110,11 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-teal-600 border-none text-white relative overflow-hidden">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$24,145,789</h3>
-                                <p className="text-teal-100/80 text-xs font-medium mt-0.5">Total Purchase</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$24,145,789</h3>
+                                <p className="text-teal-100/80 text-xs font-medium mt-0.5 truncate">Total Purchase</p>
                             </div>
-                            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm shrink-0">
                                 <Package className="h-5 w-5 text-white" />
                             </div>
                         </div>
@@ -132,11 +132,11 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-blue-600 border-none text-white relative overflow-hidden">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$18,458,747</h3>
-                                <p className="text-blue-100/80 text-xs font-medium mt-0.5">Total Purchase Return</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$18,458,747</h3>
+                                <p className="text-blue-100/80 text-xs font-medium mt-0.5 truncate">Total Purchase Return</p>
                             </div>
-                            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm shrink-0">
                                 <ShieldCheck className="h-5 w-5 text-white" />
                             </div>
                         </div>
@@ -157,18 +157,18 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-white/5 border border-white/10 text-white backdrop-blur-sm shadow-sm">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$8,458,798</h3>
-                                <p className="text-slate-400 text-xs font-medium mt-0.5">Profit</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$8,458,798</h3>
+                                <p className="text-slate-400 text-xs font-medium mt-0.5 truncate">Profit</p>
                             </div>
-                            <div className="p-1.5 bg-sky-500/20 rounded-lg">
+                            <div className="p-1.5 bg-sky-500/20 rounded-lg shrink-0">
                                 <Layers className="h-4 w-4 text-sky-500" />
                             </div>
                         </div>
                         <div className="mt-4 flex items-center justify-between text-xs">
                             <span className="text-emerald-500 font-semibold">+35%</span>
                             <span className="text-slate-400">vs Last Month</span>
-                            <span className="text-white underline cursor-pointer hover:text-sky-500">View All</span>
+                            <Button variant="link" className="text-white h-auto p-0 underline hover:text-sky-500">View All</Button>
                         </div>
                     </CardContent>
                 </Card>
@@ -177,18 +177,18 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-white/5 border border-white/10 text-white backdrop-blur-sm shadow-sm">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$48,988,78</h3>
-                                <p className="text-slate-400 text-xs font-medium mt-0.5">Invoice Due</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$48,988,78</h3>
+                                <p className="text-slate-400 text-xs font-medium mt-0.5 truncate">Invoice Due</p>
                             </div>
-                            <div className="p-1.5 bg-emerald-500/20 rounded-lg">
+                            <div className="p-1.5 bg-emerald-500/20 rounded-lg shrink-0">
                                 <Clock className="h-4 w-4 text-emerald-500" />
                             </div>
                         </div>
                         <div className="mt-4 flex items-center justify-between text-xs">
                             <span className="text-emerald-500 font-semibold">+35%</span>
                             <span className="text-slate-400">vs Last Month</span>
-                            <span className="text-white underline cursor-pointer hover:text-emerald-500">View All</span>
+                            <Button variant="link" className="text-white h-auto p-0 underline hover:text-emerald-500">View All</Button>
                         </div>
                     </CardContent>
                 </Card>
@@ -197,18 +197,18 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-white/5 border border-white/10 text-white backdrop-blur-sm shadow-sm">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$8,980,097</h3>
-                                <p className="text-slate-400 text-xs font-medium mt-0.5">Total Expenses</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$8,980,097</h3>
+                                <p className="text-slate-400 text-xs font-medium mt-0.5 truncate">Total Expenses</p>
                             </div>
-                            <div className="p-1.5 bg-orange-500/20 rounded-lg">
+                            <div className="p-1.5 bg-orange-500/20 rounded-lg shrink-0">
                                 <Wallet className="h-4 w-4 text-orange-500" />
                             </div>
                         </div>
                         <div className="mt-4 flex items-center justify-between text-xs">
                             <span className="text-emerald-500 font-semibold">+41%</span>
                             <span className="text-slate-400">vs Last Month</span>
-                            <span className="text-white underline cursor-pointer hover:text-orange-500">View All</span>
+                            <Button variant="link" className="text-white h-auto p-0 underline hover:text-orange-500">View All</Button>
                         </div>
                     </CardContent>
                 </Card>
@@ -217,18 +217,18 @@ const Dashboard: React.FC = () => {
                 <Card className="bg-white/5 border border-white/10 text-white backdrop-blur-sm shadow-sm">
                     <CardContent className="p-4">
                         <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-xl font-bold text-white">$78,458,798</h3>
-                                <p className="text-slate-400 text-xs font-medium mt-0.5">Total Payment Returns</p>
+                            <div className="min-w-0">
+                                <h3 className="text-xl font-bold text-white truncate">$78,458,798</h3>
+                                <p className="text-slate-400 text-xs font-medium mt-0.5 truncate">Total Payment Returns</p>
                             </div>
-                            <div className="p-1.5 bg-indigo-500/20 rounded-lg">
+                            <div className="p-1.5 bg-indigo-500/20 rounded-lg shrink-0">
                                 <Undo2 className="h-4 w-4 text-indigo-500" />
                             </div>
                         </div>
                         <div className="mt-4 flex items-center justify-between text-xs">
                             <span className="text-rose-500 font-semibold">-20%</span>
                             <span className="text-slate-400">vs Last Month</span>
-                            <span className="text-white underline cursor-pointer hover:text-indigo-500">View All</span>
+                            <Button variant="link" className="text-white h-auto p-0 underline hover:text-indigo-500">View All</Button>
                         </div>
                     </CardContent>
                 </Card>

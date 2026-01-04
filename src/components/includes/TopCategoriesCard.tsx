@@ -76,10 +76,11 @@ export const TopCategoriesCard: React.FC = () => {
                     </div>
 
                     {/* Legend */}
-                    <div className="w-full md:w-1/2 flex justify-end">
-                        <div className="flex flex-col gap-4">
+                    {/* Legend */}
+                    <div className="w-full md:w-1/2 flex justify-start md:justify-end overflow-hidden">
+                        <div className="flex flex-row md:flex-col flex-nowrap justify-start md:justify-end gap-4 w-full overflow-x-auto no-scrollbar pb-1">
                             {data.map((item, index) => (
-                                <div key={item.name} className="flex flex-col">
+                                <div key={item.name} className="flex flex-col items-start px-4 first:pl-0 md:px-0 border-r border-white/10 last:border-r-0 md:border-r-0 shrink-0">
                                     <div className="flex items-center gap-2 text-xs text-slate-400 mb-0.5">
                                         <span className="w-1.5 h-3 rounded-md" style={{ backgroundColor: COLORS[index] }}></span>
                                         {item.name}
@@ -99,18 +100,18 @@ export const TopCategoriesCard: React.FC = () => {
                     <h4 className="text-sm font-semibold text-white mb-3">Category Statistics</h4>
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center justify-between p-2 bg-white/5 rounded-lg border border-white/5">
-                            <div className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
-                                <span className="text-xs text-slate-300">Total Number Of Categories</span>
+                            <div className="flex items-center gap-2 min-w-0">
+                                <span className="w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span>
+                                <span className="text-xs text-slate-300 truncate">Total Number Of Categories</span>
                             </div>
-                            <span className="text-sm font-bold text-white">698</span>
+                            <span className="text-sm font-bold text-white pl-2">698</span>
                         </div>
                         <div className="flex items-center justify-between p-2 bg-white/5 rounded-lg border border-white/5">
-                            <div className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-orange-500"></span>
-                                <span className="text-xs text-slate-300">Total Number Of Products</span>
+                            <div className="flex items-center gap-2 min-w-0">
+                                <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
+                                <span className="text-xs text-slate-300 truncate">Total Number Of Products</span>
                             </div>
-                            <span className="text-sm font-bold text-white">7899</span>
+                            <span className="text-sm font-bold text-white pl-2">7899</span>
                         </div>
                     </div>
                 </div>
