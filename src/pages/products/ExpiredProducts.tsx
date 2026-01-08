@@ -13,7 +13,6 @@ import {
     Edit,
     Trash2
 } from 'lucide-react';
-import { Checkbox } from "../../components/ui/checkbox";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../../components/ui/pagination';
@@ -236,9 +235,6 @@ const ExpiredProducts: React.FC = () => {
                         <Table>
                             <TableHeader className="bg-slate-900 border-b border-white/10">
                                 <TableRow className="hover:bg-transparent border-white/10">
-                                    <TableHead className="w-10 text-center">
-                                        <Checkbox className="border-white/20 data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500" />
-                                    </TableHead>
                                     <TableHead className="text-white">SKU</TableHead>
                                     <TableHead className="text-white">Product</TableHead>
                                     <TableHead className="text-white">Manufactured Date</TableHead>
@@ -250,9 +246,6 @@ const ExpiredProducts: React.FC = () => {
                                 {currentProducts.length > 0 ? (
                                     currentProducts.map((product) => (
                                         <TableRow key={product.id} className="hover:bg-white/5 transition-colors border-white/5 group">
-                                            <TableCell className="text-center">
-                                                <Checkbox className="border-white/20 data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500" />
-                                            </TableCell>
                                             <TableCell className="font-medium text-slate-300">{product.sku}</TableCell>
                                             <TableCell>
                                                 <div className="flex items-center gap-3">

@@ -33,7 +33,6 @@ import {
     DropdownMenuTrigger,
 } from "../../components/ui/dropdown-menu";
 import { Link } from "react-router-dom";
-import { Checkbox } from "../../components/ui/checkbox";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../../components/ui/pagination';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
@@ -184,9 +183,6 @@ const Products: React.FC = () => {
                         <Table>
                             <TableHeader className="bg-slate-900 border-b border-white/10">
                                 <TableRow className="hover:bg-transparent border-white/10">
-                                    <TableHead className="w-10 text-center">
-                                        <Checkbox className="border-white/20 data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500" />
-                                    </TableHead>
                                     <TableHead className="text-white">SKU</TableHead>
                                     <TableHead className="text-white">Product Name</TableHead>
                                     <TableHead className="text-white">Category</TableHead>
@@ -202,9 +198,6 @@ const Products: React.FC = () => {
                                 {currentProducts.length > 0 ? (
                                     currentProducts.map((product) => (
                                         <TableRow key={product.id} className="hover:bg-white/5 transition-colors border-white/5 group">
-                                            <TableCell className="text-center">
-                                                <Checkbox className="border-white/20 data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500" />
-                                            </TableCell>
                                             <TableCell className="font-medium text-slate-300">{product.sku}</TableCell>
                                             <TableCell>
                                                 <div className="flex items-center gap-3">

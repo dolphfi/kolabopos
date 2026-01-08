@@ -12,6 +12,10 @@ import EditProductLayout from 'components/layout/productlayout/EditProductLayout
 import EditProduct from 'pages/products/EditProduct';
 import ExpiredProducts from 'pages/products/ExpiredProducts';
 import ExpiredProductsLayout from 'components/layout/productlayout/ExpiredProductsLayout';
+import CategoryLayout from 'components/layout/categorylayout/CategoryLayout';
+import Category from 'pages/category/Category';
+import BrandLayout from 'components/layout/brandlayout/BrandLayout';
+import Brand from 'pages/brand/Brand';
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +32,7 @@ export const router = createBrowserRouter([
             },
         ],
     },
+    // Products
     {
         path: "/products",
         element: <ProductsLayout />,
@@ -75,6 +80,28 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <ExpiredProducts />,
+            },
+        ],
+    },
+    // Category
+    {
+        path: "/category",
+        element: <CategoryLayout />,
+        children: [
+            {
+                index: true,
+                element: <Category />,
+            },
+        ],
+    },
+    // Brand
+    {
+        path: "/brand",
+        element: <BrandLayout />,
+        children: [
+            {
+                index: true,
+                element: <Brand />,
             },
         ],
     },

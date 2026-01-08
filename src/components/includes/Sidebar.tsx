@@ -32,7 +32,8 @@ import {
     Book,
     ChartLine,
     MonitorCog,
-    DoorClosedLocked
+    DoorClosedLocked,
+    Toolbox
 } from "lucide-react"
 import {
     Tooltip,
@@ -226,7 +227,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                             </Link>
                                         </Button>
                                         <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
-                                            <Link to="/categories">
+                                            <Link to="/category">
                                                 <LayoutList className="mr-2 h-4 w-4" />
                                                 Catégories
                                             </Link>
@@ -253,6 +254,38 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                                             <Link to="/qr-barcode">
                                                 <Scan className="mr-2 h-4 w-4" />
                                                 QR & Barcode
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
+                    <div className="space-y-1">
+                        <Accordion type="single" collapsible className="w-full" value={openAccordion} onValueChange={setOpenAccordion}>
+                            <AccordionItem value="module" className="border-b-0">
+                                <Tooltip delayDuration={0}>
+                                    <TooltipTrigger asChild>
+                                        <AccordionTrigger
+                                            className={cn(
+                                                "py-2 hover:bg-white/10 hover:text-white hover:no-underline rounded-md px-4 text-sm font-medium",
+                                                !isSidebarOpen && "justify-center px-2 [&>svg]:hidden"
+                                            )}
+                                            onClick={handleAccordionTriggerClick}
+                                        >
+                                            <div className="flex items-center">
+                                                <Toolbox className="mr-2 h-4 w-4" />
+                                                Services
+                                            </div>
+                                        </AccordionTrigger>
+                                    </TooltipTrigger>
+                                </Tooltip>
+                                <AccordionContent className="pb-0 pl-10">
+                                    <div className="space-y-1 mt-1">
+                                        <Button variant="ghost" size="sm" className="w-full justify-start h-8 hover:bg-white/10 hover:text-white" asChild onClick={handleLinkClick}>
+                                            <Link to="/services">
+                                                <Toolbox className="mr-2 h-4 w-4" />
+                                                Tous les services
                                             </Link>
                                         </Button>
                                     </div>

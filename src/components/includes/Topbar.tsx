@@ -28,6 +28,7 @@ import { Button } from "../../components/ui/button";
 import { cn } from "../../lib/utils";
 
 import { useSidebar } from "../layout/SidebarContext";
+import Language from "./Language";
 
 export function Topbar() {
     const { isSidebarOpen, toggleSidebar } = useSidebar();
@@ -110,6 +111,7 @@ export function Topbar() {
                     </Popover>
                 </div>
                 <div className="flex items-center space-x-4 flex-1 justify-end">
+                    <Language />
                     <UserNav />
                 </div>
             </div>
